@@ -14,9 +14,11 @@ USE `burgers_db`;
 CREATE TABLE `burgers` (
 	`id` INT( 11 ) AUTO_INCREMENT NOT NULL,
 	`burger_name` VARCHAR( 255) NOT NULL,
-	`devoured` BOOLEAN NOT NULL DEFAULT 0,
-	`date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`devoured` BOOLEAN DEFAULT 0,
+	`date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
 	PRIMARY KEY ( `id` ) ); /* Set ID as primary key */
     
 SELECT * FROM burgers;
+
+DROP TABLES `burgers`;

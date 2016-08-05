@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/burgers', function (req, res) {
-	burger.all(function (data) {
+	burger.selectAll(function (data) {
 		var hbsObject = { burgers: data };
 		console.log(hbsObject);
 		res.render('index', hbsObject);
@@ -18,7 +18,7 @@ router.get('/burgers', function (req, res) {
 });
 
 router.post('/burgers/create', function (req, res) {
-	burger.create(['name', 'sleepy'], [req.body.name, req.body.sleepy], function () {
+	burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function () {
 		res.redirect('/burgers');
 	});
 });
@@ -28,15 +28,7 @@ router.put('/burgers/update/:id', function (req, res) {
 
 	console.log('condition', condition);
 
-	burger.update({ sleepy: req.body.sleepy }, condition, function () {
-		res.redirect('/burgers');
-	});
-});
-
-router.delete('/burgers/delete/:id', function (req, res) {
-	var condition = 'id = ' + req.params.id;
-
-	burger.delete(condition, function () {
+	burger.updateOne({ devoured: req.body.devoured }, condition, function () {
 		res.redirect('/burgers');
 	});
 });
