@@ -14,11 +14,13 @@ USE `burgers_db`;
 CREATE TABLE `burgers` (
 	`id` INT( 11 ) AUTO_INCREMENT NOT NULL,
 	`burger_name` VARCHAR( 255) NOT NULL,
-	`devoured` BOOLEAN DEFAULT 0,
+	`devoured` BOOLEAN DEFAULT FALSE,
 	`date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
 	PRIMARY KEY ( `id` ) ); /* Set ID as primary key */
     
 SELECT * FROM burgers;
+
+DELETE FROM burgers where id = 5;
 
 DROP TABLES `burgers`;
