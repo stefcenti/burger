@@ -1,4 +1,6 @@
 li {
+  height: 35px;
+  /*list-style: none;*/
   background: #FAEBD7;
   margin: 5px;
   padding: 5px;
@@ -9,6 +11,7 @@ li {
 }
 
 .create-update-form {
+  text-align: center;
   background: aqua;
   margin: 5px;
   padding: 5px;
@@ -20,4 +23,25 @@ li {
 
 .jumbotron {
 	text-align: center;
+}
+
+.not-devoured {
+  width: 45%;
+	float: left;
+}
+
+.devoured {
+  width: 45%;
+	float: right;
+}
+
+.burger-name {
+  margin-top: -20px;
+  overflow: auto;
+}
+
+.burger-button {
+  line-height: 20px;
+  width: 110px;
+  margin-left: -15px;
 }

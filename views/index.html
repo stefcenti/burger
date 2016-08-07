@@ -20,7 +20,7 @@
     <!-- Second Row -->
     <div class="row">
       <!-- First of two columns -->
-      <div class="col-md-6">
+      <div class="col-md-6" id="col1">
         <h1>I'm in Column 1 of 2</h1>
       </div>
       <!-- Second of two columns -->
@@ -33,45 +33,34 @@
 
 <!-- <h2>Yummy Burgers to Devour!</h2> -->
 
-<!--
-// 1 row to hold 3 cols:
-// - col1 will have burgers to be devoured.
-// - col2 will have devour buttons.
-// - col3 will have burgers that have been devoured.
+<!-- 
+1 row to hold 3 cols:
+- col1 will have burgers to be devoured.
+- col2 will have devour buttons.
+- col3 will have burgers that have been devoured. 
 -->
-<div class="row"> 
+<div>
   <ul>
     {{#each burgers}}
-      {{#unless this.devoured}}
-        <li>
-
-          <div class="col-md-4"> // col1
-            {{this.burger_name}}
-          </div>
-
-          <div class="col-md-4"> // col2
-            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="devoured" value="true">
-              <button type="submit">DEVOUR ME!</button>
-            </form>
-          </div>
-
-        </li>
-      {{/unless}}
-    {{/each}}
-  </ul>
-
-<!-- <h2>Burgers You Devoured!</h2> -->
-
-  <ul>
-    {{#each burgers}}
+    <li>
       {{#if this.devoured}}
-        <li>
-          <div class="col-md-4">
+        <div class=container class="left-side">
+          <div class="not-devoured">
             {{this.burger_name}}
           </div>
-        </li>
+
+          <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="devoured" value="true">
+            <button type="submit" class="devour-button">DEVOUR ME!</button>
+          </form>
+        </div>
+      {{#else}}
+        <div class=container class="right-side">
+            {{this.burger_name}}
+        </div>
       {{/if}}
+
+    </li>
     {{/each}}
   </ul>
 </div>

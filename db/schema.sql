@@ -24,3 +24,6 @@ SELECT * FROM burgers;
 DELETE FROM burgers where id = 5;
 
 DROP TABLES `burgers`;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE burgers SET `devoured` = false;
